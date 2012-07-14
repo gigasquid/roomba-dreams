@@ -21,6 +21,7 @@ var w = 500;
 var h = 500;
 var roomba_image = 48;
 
+d3.select("body").append("h1").text("Roomba Dreams");
 var svg = d3.select("body").append("svg").attr("width", w).attr("height", h);
 //setup the room
 svg.append("rect").attr("width", w).attr("height", h).attr("fill", "#ffffee")
@@ -68,7 +69,7 @@ function move(){
 
   showTweet();
 
-  setTimeout(move, 4000 + 200);
+  setTimeout(move, 5000);
 }
 
 move();
