@@ -3,7 +3,7 @@ var tweets = ["(Becomes Self-Aware)"];
 var tweet_num = 0;
 
 function getTweets() {
-  var url = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=SelfAwareROOMBA&callback=?'
+  var url = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=SelfAwareROOMBA&count=200&callback=?'
   $.getJSON(url,function(json){
     for (i=0; i<json.length; i++){
       if (!json[i].in_reply_to_user_id){
