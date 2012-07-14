@@ -41,8 +41,12 @@ var roomba = svg.selectAll("roomba").data(roomba_data).enter()
 var tweet = svg.selectAll("g")
   .append("text");
 
+function random_from_to(from, to){
+  return Math.floor(Math.random() * (to - from + 1) + from);
+}
+
 function next_position(){
-  return  Math.floor(Math.random() * (490 - roomba_image) + (roomba_image + 10));
+  return random_from_to((roomba_image + 10), (490 - roomba_image))
 }
 
 function showTweet(){
