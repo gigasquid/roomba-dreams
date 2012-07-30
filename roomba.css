@@ -1,0 +1,16 @@
+.roomba{
+  background-image: "roomba_normal.jpg"
+}
+
+h1{
+  font-family: Helvetica;
+  margin: 5px;
+}
+
+.tweet{
+  font-weight: bold;
+  font-family: Helvetica;
+  font-size: 16px;
+  width: 480px;
+  margin: 5px;
+}
