@@ -17,7 +17,7 @@ function getTweets() {
   });
 }
 
-//getTweets();
+getTweets();
 
 function random_from_to(from, to){
   return Math.floor(Math.random() * (to - from + 1) + from);
@@ -38,7 +38,7 @@ function show_tweet(){
 }
 
 var dirt_radius = 2;
-var dirt_num = 500;
+var dirt_num = 50;
 function init_dirt(){
   for (i=0; i<dirt_num; i++){
     dirt_data.push([random_from_to(10, 490), random_from_to(10,490), i])
@@ -93,30 +93,6 @@ function dirt_clean_up(old_x, old_y, new_x, new_y){
     [new_x, new_y]
   ];
 
-  // svg.append("circle")
-  //   .attr("cx", old_x)
-  //   .attr("cy", old_y )
-  //   .attr("r", 10)
-  //   .attr("fill", "red");
-
-  // svg.append("circle")
-  //   .attr("cx", old_x)
-  //   .attr("cy", (old_y + roomba_radius))
-  //   .attr("r", 10)
-  //   .attr("fill", "red");
-
-  // svg.append("circle")
-  //   .attr("cx", new_x)
-  //   .attr("cy", (new_y + roomba_radius))
-  //   .attr("r", 10)
-  //   .attr("fill", "red");
-
-  // svg.append("circle")
-  //   .attr("cx", new_x)
-  //   .attr("cy", new_y)
-  //   .attr("r", 10)
-  //   .attr("fill", "red");
-
   for (i=0; i<dirt_data.length; i++){
     var dirt_x = dirt_data[i][0];
     var dirt_y = dirt_data[i][1];
@@ -131,7 +107,8 @@ function dirt_clean_up(old_x, old_y, new_x, new_y){
   console.log(cleaned_dirt);
 
   dirt_data = new_dirt_data;
-  svg.selectAll(".dirt").data(cleaned_dirt, function(d){ return d[2];}).remove();
+  svg.selectAll(".dirt").data(cleaned_dirt, function(d){ return d[2];})
+    .transition().remove().duration(800).delay(300);
 
 
 }
@@ -152,7 +129,7 @@ function move(){
 
   show_tweet();
 
-//  setTimeout(move, 5000);
+  setTimeout(move, 5000);
 }
 
 move();
